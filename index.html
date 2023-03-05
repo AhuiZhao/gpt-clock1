@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>时钟</title>
+	<style>
+		body {
+			background-color: black;
+			color: white;
+			font-size: 4rem;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		function updateTime() {
+			var now = new Date();
+			var hours = now.getHours();
+			var minutes = now.getMinutes();
+			var seconds = now.getSeconds();
+			var timeString = padZero(hours) + ":" + padZero(minutes) + ":" + padZero(seconds);
+			document.body.innerHTML = timeString;
+		}
+
+		function padZero(number) {
+			if (number < 10) {
+				return "0" + number;
+			} else {
+				return number;
+			}
+		}
+
+		setInterval(updateTime, 1000);
+	</script>
+</body>
+</html>
